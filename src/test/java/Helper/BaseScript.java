@@ -1,3 +1,8 @@
+package Helper;
+
+
+import Pages.ArgosHomePage;
+import Pages.ItemsPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
@@ -8,18 +13,18 @@ import java.util.concurrent.TimeUnit;
 
 public class BaseScript {
 
-
     WebDriver driver = new ChromeDriver();
     String baseUrl = "https://www.argos.co.uk";
 
-    ArgosHomePage argosHomePage = new ArgosHomePage(driver);
-    ItemsPage itemsPage = new ItemsPage(driver);
+    public ArgosHomePage argosHomePage = new ArgosHomePage(driver);
+    public ItemsPage itemsPage = new ItemsPage(driver);
 
     @BeforeSuite
     public void doBeforeSuite() {
         System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+
     }
 
     @BeforeTest
