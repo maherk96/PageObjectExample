@@ -27,5 +27,6 @@ public class ArgosHomePage extends BasePage {
         searchBox.sendKeys(productID);
         searchConfirm.click();
     }
+    //Test
 
 }
