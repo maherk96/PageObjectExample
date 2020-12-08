@@ -1,15 +1,15 @@
+package Pages;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
-public class ArgosHomePage {
-
-    WebDriver driver;
+public class ArgosHomePage extends BasePage {
 
     public ArgosHomePage(WebDriver driver) {
-        this.driver = driver;
+        super.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
@@ -27,5 +27,6 @@ public class ArgosHomePage {
         searchBox.sendKeys(productID);
         searchConfirm.click();
     }
+    //Test
 
 }
