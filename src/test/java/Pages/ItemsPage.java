@@ -8,6 +8,8 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
+import static Helper.BaseScript.checkQuantityLevel;
+
 public class ItemsPage extends BasePage {
 
     public ItemsPage(WebDriver driver){
@@ -17,9 +19,6 @@ public class ItemsPage extends BasePage {
 
     @FindBy(how = How.CSS, using = "select#add-to-trolley-quantity")
     WebElement quantityDropdown;
-
-    @FindBy(how = How.CSS, using = "[value='5']")
-    WebElement value;
 
     @FindBy(how = How.CSS, using = "input[name='search']")
     WebElement postCodeSearch;
@@ -36,21 +35,27 @@ public class ItemsPage extends BasePage {
     @FindBy(how = How.CSS, using = ".ProductCard__productLinePrice__3QC7V")
     WebElement price;
 
+    @FindBy(how = How.CSS, using = "ul  h2")
+    WebElement priceOfProduct;
+
     public WebElement findByCss (String cssValue) {
        return driver.findElement(By.cssSelector(cssValue));
     }
-    public void addToTrolley(String customerPostCode, int enterQuantityToOrder) {
+
+    public void verifyPriceAndQuantityOrdered (String customerPostCode, int enterQuantityToOrder) {
+        String temp1 = priceOfProduct.getText();
+        double priceOfProductWithout£ = Double.parseDouble(temp1.replace("\u00A3", ""));
+
         quantityDropdown.click();
-        findByCss("[value='" + enterQuantityToOrder + "']").click();
+        findByCss("[value='" + checkQuantityLevel(enterQuantityToOrder) + "']").click();
         postCodeSearch.sendKeys(customerPostCode);
         checkStockButton.click();
         addToTrolley.click();
         confirmToAddItem.click();
-    }
 
-    public void verifyPriceAndQuantityOrdered(int quantity, double priceOfOneUnit) {
-        String pound = "\u00A3";
-        Assert.assertEquals(price.getText(), pound + quantity * priceOfOneUnit);
+        double temp3 = enterQuantityToOrder * priceOfProductWithout£;
+        double price1 = Double.parseDouble(price.getText().replace("\u00A3", ""));
+        Assert.assertEquals(price1,  temp3);
     }
 
 }

@@ -6,13 +6,12 @@ public class ArgosOrderItems extends BaseScript {
     @Test
     public void orderItemAndCheckQuantityWithPrice() {
 
-        argosHomePage.searchForAItem("474/1925");
-        itemsPage.addToTrolley("RM6 4XP", 1);
-        itemsPage.verifyPriceAndQuantityOrdered(1, 54.99);
+        argosHomePage.searchForAItem("392/2604");
+        itemsPage.verifyPriceAndQuantityOrdered("RM6 4XP", 3);
 
     }
 
-    @Test
+    @Test(enabled = false)
     public void ArgosTrolleyHomePagePath() {
 
         argosHomePage.navigateToTrolleyFromHomePage();
@@ -21,7 +20,7 @@ public class ArgosOrderItems extends BaseScript {
 
     }
 
-    @Test
+    @Test(enabled = false)
     public void ArgosTrolleyHomePagePathV1() {
 
         argosHomePage
