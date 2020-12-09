@@ -13,7 +13,7 @@ import static Helper.BaseScript.baseUrl;
 public class ArgosHomePage extends BasePage {
 
     public ArgosHomePage(WebDriver driver) {
-        super.driver = driver;
+        super(driver);
         PageFactory.initElements(driver, this);
     }
 

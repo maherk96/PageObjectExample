@@ -11,7 +11,7 @@ import org.testng.Assert;
 public class ItemsPage extends BasePage {
 
     public ItemsPage(WebDriver driver){
-        super.driver = driver;
+        super(driver);
         PageFactory.initElements(driver, this);
     }
 

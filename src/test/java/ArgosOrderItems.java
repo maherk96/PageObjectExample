@@ -3,7 +3,7 @@ import org.testng.annotations.*;
 
 public class ArgosOrderItems extends BaseScript {
 
-    @Test(enabled = false)
+    @Test
     public void orderItemAndCheckQuantityWithPrice() {
 
         argosHomePage.searchForAItem("474/1925");
@@ -12,7 +12,7 @@ public class ArgosOrderItems extends BaseScript {
 
     }
 
-    @Test(enabled = false)
+    @Test
     public void ArgosTrolleyHomePagePath() {
 
         argosHomePage.navigateToTrolleyFromHomePage();
