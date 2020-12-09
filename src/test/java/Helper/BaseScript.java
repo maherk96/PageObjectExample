@@ -8,16 +8,20 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
-
 import java.util.concurrent.TimeUnit;
+import static Pages.ArgosHomePage.acceptCookies;
 
 public class BaseScript {
 
     WebDriver driver = new ChromeDriver();
-    String baseUrl = "https://www.argos.co.uk";
+    public static String baseUrl = "https://www.argos.co.uk/";
 
     public ArgosHomePage argosHomePage = new ArgosHomePage(driver);
     public ItemsPage itemsPage = new ItemsPage(driver);
+
+    public void acceptCookies() {
+        acceptCookies.click();
+    }
 
     @BeforeSuite
     public void doBeforeSuite() {
