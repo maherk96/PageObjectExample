@@ -2,13 +2,12 @@ package Pages;
 
 import org.openqa.selenium.WebDriver;
 
-public class BasePage {
+public class BaseDriver {
 
     protected WebDriver driver;
 
-    public BasePage(WebDriver driver){
+    public BaseDriver(WebDriver driver){
         this.driver = driver;
     }
-
 
 }
