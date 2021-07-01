@@ -6,7 +6,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
-
 import java.util.Arrays;
 import java.util.logging.Logger;
 import java.util.stream.IntStream;
@@ -45,13 +44,23 @@ public class DeliverooPage extends BaseDriver {
     @FindBy(how = How.CSS, using = "li:nth-of-type(1) > .ccl-b757c6f9e5f59909")
     public static WebElement IN_MENU;
 
+    @FindBy(how = How.CSS, using = ".ccl-94e7181efee87257.ccl-ae2a4cc7a151dafd > .ccl-19882374e640f487.ccl-1f89da61a98d89af.ccl-417df52a76832172")
+    public static WebElement DELIVEROO_TRIAL;
+
+    @FindBy(how = How.CSS, using = ".ccl-19882374e640f487.ccl-1daa0367dee37c3b.ccl-deab34eb04186352")
+    public static WebElement CANCEL_TRIAL;
+
+    @FindBy(how = How.CSS, using = ".ccl-84274627c639e05a.ccl-a97a150ddadaa172.ccl-d0484b0360a2b432.ccl-ed9aadeaa18a9f19 > .ccl-cce251427bbe4ec4")
+    public static WebElement CONFIRM_CANCEL;
+
+    @FindBy(how = How.CSS, using = ".ccl-0a8746bfe85ebfa3.ccl-233931c277401e86.ccl-a97a150ddadaa172.ccl-d0484b0360a2b432.ccl-ed9aadeaa18a9f19 > .ccl-cce251427bbe4ec4")
+    public static WebElement DONE_OK;
+
     @FindBy(how = How.CSS, using = "[class='ccl-9aab795066526b4d'] [type]")
     public static WebElement passwordText;
 
-
     @FindBy(how = How.CSS, using = ".ccl-cce251427bbe4ec4")
     public static WebElement CONTINUE;
-
 
     @FindBy(how = How.CSS, using = ".ccl-84274627c639e05a.ccl-d0484b0360a2b432.ccl-ed9aadeaa18a9f19 > .ccl-cce251427bbe4ec4")
     public static WebElement DEACTIVATE;
@@ -72,13 +81,13 @@ public class DeliverooPage extends BaseDriver {
     public DeliverooPage userEntersPassword() throws InterruptedException {
         Thread.sleep(1000);
 
-        loginPass.sendKeys(System.getProperty("password"));
+        loginPass.sendKeys(("password"));
         return this;
     }
 
     public DeliverooPage userEntersPasswordForDeactivation() throws InterruptedException {
         Thread.sleep(1000);
-        passwordText.sendKeys(System.getProperty("password"));
+        passwordText.sendKeys(("password"));
         return this;
     }
 
